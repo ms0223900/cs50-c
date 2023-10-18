@@ -1,6 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 
+// 事先聲明function才行
 int get_size(void); 
 void print_grid(int block_amount); 
 
