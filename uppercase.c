@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <cs50.h>
 #include <string.h>
+#include <stdbool.h>
 
 char END_CHAR = '\0';
 
@@ -17,12 +18,20 @@ char* concat_str(char* s1, char* s2) {
   return s1;
 }
 
-char* char_to_str(char _char) {
+string char_to_str(char _char) {
   static char str[2];
   str[0] = _char;
   str[1] = '\0'; 
 
   return str;
+}
+
+bool isLowercase(char c) {
+  return c >= 'a' && c <= 'z';
+}
+
+char toUppercase(char c) {
+  return c - 32;
 }
 
 int main(void) {
@@ -35,8 +44,8 @@ int main(void) {
   while (i < strlen(name))
   {
     char c = name[i];
-    if(c >= 'a' && c <= 'z') {
-      char uppercase_char = c - 32;
+    if(isLowercase(c)) {
+      char uppercase_char = toUppercase(c);
       string uppercase_str = char_to_str(uppercase_char);
 
       concat_str(uppercaseName, uppercase_str);
